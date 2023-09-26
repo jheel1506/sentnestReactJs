@@ -10,9 +10,10 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from '@/styles/Home.module.css';
 import  setnestlogo from '../../../public/assets/Setnest-copy.png';
 import editIcon from '../../../public/assets/editIcon.png'
+import uploadIcon from '../../../public/assets/upload-icon.svg'
 import Image from 'next/image'
 import Carousel from 'react-bootstrap/Carousel';
-import crslimg from '../../../public/assets/crslImg.png';
+import crslimg from '../../../public/assets/verifyCrsl.png';
 // import OTPInput,  {ResendOTP } from "otp-input-react";
 import Link from 'next/link'
 
@@ -27,7 +28,7 @@ const schema = yup.object().shape({
   confpassword: yup.string().required().min(6),
 });
 
-const SignUp = () => {
+const VerifyProfile = () => {
     // const [OTP, setOTP] = useState("");
     const [otp, setOtp] = useState('');
     // const handleChange = (otp) => {
@@ -70,72 +71,43 @@ const SignUp = () => {
             <div className='row side-padding'>
                 <div className='col-6 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
-                    <h5 className='mb-4'>Sign up</h5>
+                    <h5 className='mb-4'>Verify Your Profile</h5>
+                    <p>Make sure your photos aren’t blurry and the front of your identity card clearly shows your face.</p>
         <div>
 
-        <FloatingLabel
-        controlId="floatingInput"
-        label="Email address"
-        
-      >
-        <Form.Control type="email" placeholder="name@example.com" {...register('email')}/>
-      </FloatingLabel>
-      <p>{errors.email?.message}</p>
-      <FloatingLabel controlId="floatingPassword" label="Password">
-        <Form.Control type="password" placeholder="Password" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.password?.message}</p>
-      <FloatingLabel controlId="floatingPassword2" label="Confirm Password">
-        <Form.Control type="password" placeholder="Password" {...register('confpassword')}/>
-      </FloatingLabel>
-      <p>{errors.confpassword?.message}</p>
-      {
-        !showOTP &&
-        <Form.Check
-            label={  <span >I agree to all the <span className='resendBtn'>Term & Condition</span> and <span className='resendBtn'>Privacy Policy</span> </span>}
-            name="group1"
-            type="checkbox"
-            
-          />
-        
-      }
-      </div>
-        {showOTP && 
+        <Form.Group controlId="formFile" className="mb-3 upload-fle-div">
+        <p className='mb-0'> <Image src={uploadIcon} alt='upload' className='img-fluid' /> Front Adhaar Card</p>
+        <Form.Label className='upload-fle' >Upload</Form.Label>
+        <Form.Control  type="file" hidden/>
+      </Form.Group>
 
-        
-            <div className='mt-4 text-center otpInput'>
-              <p>We have sent the verification OTP to your email address.</p>
-              <p>@emailid <Image src={editIcon} className='img-fluid editIcon' alt='logo' /> </p>
-            {/* <OTPInput className='otpInput' value={OTP} onChange={handleChange} autoFocus OTPLength={6} otpType="number" disabled={false}  /> */}
-          <div className={'otpDiv'}>
-          <OtpInput
-      value={otp}
-      onChange={setOtp}
-      numInputs={6}
+      <Form.Group controlId="formFileN" className="mb-3 upload-fle-div">
+        <p className='mb-0'> <Image src={uploadIcon} alt='upload' className='img-fluid' /> Back Adhaar Card</p>
+        <Form.Label className='upload-fle' >Upload</Form.Label>
+        <Form.Control  type="file" hidden/>
+      </Form.Group>
+     
       
-      renderSeparator={<span> &nbsp; &nbsp; &nbsp; </span>}
-      renderInput={(props) => <input {...props} />}
-    />
-          </div>
-            
-            <div className='d-flex justify-content-center resendDiv mt-2'>
-            Didn&apos;t get it? <span className='resendBtn'> Resend the code</span>
-            </div>
+      </div>
+        
+        
+      <div className='row'>
+        
+        <div className='col-6'>
+        <Link href="/signin">
+            <button type="button" className='skip-btn' onClick={(e) => setshowOTP(true)} >Skip</button>
+            </Link>
             </div>
         
-        }
-        {
-          !showOTP &&
-        <button type="button" className='signup-btn' onClick={(e) => setshowOTP(true)} >Sign Up</button>
-
-        }
-        {
-          showOTP &&
-          <Link href="/createprofile">
-        <button type="button" className='signup-btn' >Verify</button>
-          </Link>
-
-        }
+        
+        <div className='col-6'>
+        <Link href="/signin">
+            <button type="button" className='signup-btn' onClick={(e) => setshowOTP(true)} >Next</button>
+            </Link>
+            </div>
+        
+      
+      </div>
         
       </form>
                 </div>
@@ -170,4 +142,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default VerifyProfile;

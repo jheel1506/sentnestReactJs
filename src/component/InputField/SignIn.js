@@ -27,7 +27,7 @@ const schema = yup.object().shape({
   confpassword: yup.string().required().min(6),
 });
 
-const SignUp = () => {
+const SignIn = () => {
     // const [OTP, setOTP] = useState("");
     const [otp, setOtp] = useState('');
     // const handleChange = (otp) => {
@@ -59,83 +59,43 @@ const SignUp = () => {
 
   return (
     <div className='container-fluid main-set '>
-       <div className='topsection'>
+        <div className='topsection'>
         <button type='button' className={`${styles.iconBtn}`} onClick={goBack}>
         {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
         <FontAwesomeIcon icon={faArrowLeft} className={`${styles.iconleftBtn}`}/>
         </button>
         <Image src={setnestlogo} alt='logo' className={'img-fluid ' + styles.topLogo}/>
         </div>
+      
         <div className='container-fluid hgt-100vh'>
             <div className='row side-padding'>
                 <div className='col-6 left-padding'>
-                <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
-                    <h5 className='mb-4'>Sign up</h5>
+                <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100'>
+                    <h5 className='mb-4'>Sign In</h5>
         <div>
 
         <FloatingLabel
         controlId="floatingInput"
-        label="Email address"
+        label="Enter Email ID/Mobile no."
         
       >
-        <Form.Control type="email" placeholder="name@example.com" {...register('email')}/>
+        <Form.Control type="email" placeholder="Enter Email ID/Mobile no." {...register('email')}/>
       </FloatingLabel>
       <p>{errors.email?.message}</p>
       <FloatingLabel controlId="floatingPassword" label="Password">
         <Form.Control type="password" placeholder="Password" {...register('password')}/>
       </FloatingLabel>
       <p>{errors.password?.message}</p>
-      <FloatingLabel controlId="floatingPassword2" label="Confirm Password">
-        <Form.Control type="password" placeholder="Password" {...register('confpassword')}/>
-      </FloatingLabel>
-      <p>{errors.confpassword?.message}</p>
-      {
-        !showOTP &&
-        <Form.Check
-            label={  <span >I agree to all the <span className='resendBtn'>Term & Condition</span> and <span className='resendBtn'>Privacy Policy</span> </span>}
-            name="group1"
-            type="checkbox"
-            
-          />
-        
-      }
-      </div>
-        {showOTP && 
-
-        
-            <div className='mt-4 text-center otpInput'>
-              <p>We have sent the verification OTP to your email address.</p>
-              <p>@emailid <Image src={editIcon} className='img-fluid editIcon' alt='logo' /> </p>
-            {/* <OTPInput className='otpInput' value={OTP} onChange={handleChange} autoFocus OTPLength={6} otpType="number" disabled={false}  /> */}
-          <div className={'otpDiv'}>
-          <OtpInput
-      value={otp}
-      onChange={setOtp}
-      numInputs={6}
       
-      renderSeparator={<span> &nbsp; &nbsp; &nbsp; </span>}
-      renderInput={(props) => <input {...props} />}
-    />
-          </div>
-            
-            <div className='d-flex justify-content-center resendDiv mt-2'>
-            Didn&apos;t get it? <span className='resendBtn'> Resend the code</span>
-            </div>
-            </div>
+        <p className='mb-0 clr-pink text-end'>Forgot Password?</p>
+      </div>
         
-        }
-        {
-          !showOTP &&
-        <button type="button" className='signup-btn' onClick={(e) => setshowOTP(true)} >Sign Up</button>
+        
+          {/* <Link href="/createprofile"> */}
+        <button type="button" className='signup-btn mt-4' >Sign In</button>
+          {/* </Link> */}
 
-        }
-        {
-          showOTP &&
-          <Link href="/createprofile">
-        <button type="button" className='signup-btn' >Verify</button>
-          </Link>
-
-        }
+        
         
       </form>
                 </div>
@@ -170,4 +130,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;

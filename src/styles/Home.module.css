@@ -12,9 +12,6 @@
 }
 
 .iconBtn{
-  left: 46px;
-  position: absolute;
-  top: 39px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
 border: 5px solid #000000;
 border-radius: 18px;
@@ -117,9 +114,11 @@ opacity: 1;
 .topLogo{
   width: 171px;
   height: 55px;
-  position: absolute;
-    top: 39px;
-    left: 100px;
+}
+
+.topLogo{
+  width: 100px;
+  height: 30px;
 }
 
 @media(max-width: 1600px){
@@ -154,6 +153,10 @@ opacity: 1;
   .srchIcon{
     width: 25px;
     height: 57px;
+  }
+  .topLogo{
+    top: 8px;
+    left: 14px;
   }
   
 }

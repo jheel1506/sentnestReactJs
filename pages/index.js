@@ -35,10 +35,13 @@ const handleChange = (event) => {
   return (
     <>
       <div className={`${styles.main}`}>
-        <button type='button' className={`${styles.iconBtn}`}>
+      <div className='left-10 topsection'>
+        <button type='button' className={styles.iconBtn}>
         {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
         <FontAwesomeIcon icon={faArrowLeft} className={`${styles.iconleftBtn}`}/>
         </button>
+       
+        </div>
         <div className='row'>
           <div className='col-12'>
             <div className='padding-3em'>
@@ -52,9 +55,9 @@ const handleChange = (event) => {
                 <Image src={srchIcon} className={`${styles.srchIcon}`} alt='logo' onClick={handleShow} />
               </div>
               <div className={`${styles.btnsDiv}`}>
-              {/* <Link href="/login"> */}
+              <Link href="/signin">
                 <button type='button' className={`${styles.activeButton}`}>Login</button>
-                {/* </Link> */}
+                </Link>
               <Link href="/signup">
               <button type='button' className={`${styles.inactiveButton}`}>Sign Up</button>
                 </Link>
