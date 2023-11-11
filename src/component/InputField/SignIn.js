@@ -69,7 +69,7 @@ const SignIn = () => {
       
         <div className='container-fluid hgt-100vh'>
             <div className='row side-padding'>
-                <div className='col-6 left-padding'>
+                <div className='col-12 col-md-6 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100'>
                     <h5 className='mb-4'>Sign In</h5>
         <div>
@@ -86,20 +86,21 @@ const SignIn = () => {
         <Form.Control type="password" placeholder="Password" {...register('password')}/>
       </FloatingLabel>
       <p>{errors.password?.message}</p>
-      
+      <Link href="/forgetpassword">
         <p className='mb-0 clr-pink text-end'>Forgot Password?</p>
+        </Link>
       </div>
         
         
-          {/* <Link href="/createprofile"> */}
+          <Link href="/listerDashboard">
         <button type="button" className='signup-btn mt-4' >Sign In</button>
-          {/* </Link> */}
+          </Link>
 
         
         
       </form>
                 </div>
-                <div className='col-6 right-padding'>
+                <div className='col-6 right-padding mob-hide'>
                 <Carousel>
       <Carousel.Item>
         <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>

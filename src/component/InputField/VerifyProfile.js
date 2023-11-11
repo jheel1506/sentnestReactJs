@@ -69,7 +69,7 @@ const VerifyProfile = () => {
         </div>
         <div className='container-fluid hgt-100vh'>
             <div className='row side-padding'>
-                <div className='col-6 left-padding'>
+                <div className='col-12 col-md-6 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
                     <h5 className='mb-4'>Verify Your Profile</h5>
                     <p>Make sure your photos aren’t blurry and the front of your identity card clearly shows your face.</p>
@@ -102,7 +102,7 @@ const VerifyProfile = () => {
         
         <div className='col-6'>
         <Link href="/signin">
-            <button type="button" className='signup-btn' onClick={(e) => setshowOTP(true)} >Next</button>
+            <button type="button" className='addreSIgn signup-btn' onClick={(e) => setshowOTP(true)} >Next</button>
             </Link>
             </div>
         
@@ -111,7 +111,7 @@ const VerifyProfile = () => {
         
       </form>
                 </div>
-                <div className='col-6 right-padding'>
+                <div className='col-6 right-padding mob-hide'>
                 <Carousel>
       <Carousel.Item>
         <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>

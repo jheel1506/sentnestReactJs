@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="61.57" height="59.465" viewBox="0 0 61.57 59.465">
+  <g id="Group_12332" data-name="Group 12332" transform="translate(-3759.685 -6557.875)">
+    <g id="apartment" transform="translate(3759.685 6557.875)">
+      <path id="Path_16102" data-name="Path 16102" d="M101.662.019H88.156V8.255L101.662,6Z" transform="translate(-77.917 -0.019)" fill="#f9415a"/>
+      <path id="Path_16103" data-name="Path 16103" d="M26.174,123.035h1.819V75.864l-22,3.667v43.5H0v3.485H32.166v-3.485ZM19.389,80.56h3.7v3.485h-3.7Zm0,8.495h3.7v3.485h-3.7Zm0,8.5h3.7v3.485h-3.7Zm0,8.495h3.7v3.485h-3.7Zm-8.495-16.99h3.7v3.485h-3.7Zm0,8.5h3.7v3.485h-3.7Zm0,8.495h3.7v3.485h-3.7Zm.108,8.5h11.98v8.495H19.5v-5.01H14.487v5.01H11Z" transform="translate(0 -67.054)" fill="#f9415a"/>
+    </g>
+    <g id="apartment-2" data-name="apartment" transform="translate(3791.189 6574.864)">
+      <path id="Path_16103-2" data-name="Path 16103" d="M52.073,122.644V83.654h-22v38.991H28v3.485H58.065v-3.485Zm-8.6-33.98h3.7v3.485h-3.7Zm0,8.5h3.7v3.485h-3.7Zm0,8.495h3.7v3.485h-3.7Zm0,8.5h3.7v3.485h-3.7ZM34.975,88.664h3.7v3.485h-3.7Zm0,8.5h3.7v3.485h-3.7Zm0,8.495h3.7v3.485h-3.7Zm0,8.5h3.7v3.485h-3.7Z" transform="translate(-28 -83.654)" fill="#acacac"/>
+    </g>
+  </g>
+</svg>

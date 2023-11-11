@@ -70,7 +70,7 @@ const CreateProfile = () => {
         </div>
         <div className='container-fluid hgt-100vh'>
             <div className='row side-padding'>
-                <div className='col-6 left-padding'>
+                <div className='col-12 col-md-6 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
                     <h5 className='mb-4'>Create Profile</h5>
         <div className='row'>
@@ -163,7 +163,7 @@ const CreateProfile = () => {
         
       </form>
                 </div>
-                <div className='col-6 right-padding'>
+                <div className='col-6 right-padding mob-hide'>
                 <Carousel>
       <Carousel.Item>
         <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>

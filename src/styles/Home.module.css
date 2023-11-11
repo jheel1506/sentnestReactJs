@@ -19,6 +19,8 @@ opacity: 1;
 width: 78px;
 height: 78px;
 cursor: pointer;
+z-index: 99999999;
+    position: relative;
 
 }
 
@@ -119,6 +121,11 @@ opacity: 1;
 .topLogo{
   width: 100px;
   height: 30px;
+}
+
+.forgrtPswd{
+  height: 100px;
+  width: 100px;
 }
 
 @media(max-width: 1600px){
@@ -282,6 +289,30 @@ opacity: 1;
 
 /* Mobile */
 @media (max-width: 700px) {
+  .search{
+    width: 91vw;
+    margin: 0 auto;
+  }
+  .search input{
+    padding: 28px 48px 28px 19px;
+  }
+  .srchIcon{
+    right: 13px;
+  }
+  .btnsDiv{
+    width: 100%;
+  }
+  .activeButton{
+    width: 160px;
+  }
+  .inactiveButton{
+    width: 160px;
+  }
+  .topLogo{
+    top: 8px;
+    left: 48px;
+    position: relative;
+  }
   .content {
     padding: 4rem;
   }

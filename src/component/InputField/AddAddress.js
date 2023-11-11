@@ -63,8 +63,8 @@ const AddAddress = () => {
      
         <Image src={setnestlogo} alt='logo' className={'img-fluid ' + styles.topLogo}/>
         <div className='container-fluid hgt-100vh'>
-            <div className='row side-padding'>
-                <div className='col-6 left-padding'>
+            <div className='row side-padding mob-side'>
+                <div className='col-12 col-md-6 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
                     <h5 className='mb-4'>Add Address</h5>
         <div className='row'>
@@ -183,7 +183,7 @@ const AddAddress = () => {
         
         <div className='col-6'>
         <Link href="/verifyprofile">
-            <button type="button" className='signup-btn' onClick={(e) => setshowOTP(true)} >Next</button>
+            <button type="button" className='addreSIgn signup-btn' onClick={(e) => setshowOTP(true)} >Next</button>
             </Link>
             </div>
         
@@ -196,7 +196,7 @@ const AddAddress = () => {
         
       </form>
                 </div>
-                <div className='col-6 right-padding'>
+                <div className='col-6 right-padding mob-hide'>
                 <Carousel>
       <Carousel.Item>
         <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>

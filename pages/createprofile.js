@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import CreateProfile from '@/component/InputField/CreateProfile'
 
 const CreateProfilePage = () => {
-  // Create profile page
+  
 
   return (
     <CreateProfile></CreateProfile>
