@@ -38,7 +38,7 @@ const schema = yup.object().shape({
   confpassword: yup.string().required().min(6),
 });
 
-const ListProperty = () => {
+const VerifyPublish = () => {
     const [progress, setProgress] = useState(0);
     const [bedroom, setBedrrom] = useState(0);
     const [bathroom, setBathroom] = useState(0);
@@ -356,13 +356,13 @@ const ListProperty = () => {
         </button>
        
         </div>
-        <div className='container-fluid'>
+        <div className='container'>
             <div className='row '>
                 <div className='col-12 col-md-6 listPropdPadd left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
-                    <h5 className='mb-4'>List Your Property</h5>
+                    <h5 className='mb-4'>Rent & Deposit Details</h5>
                     <div className='row justify-content-center position-relative'>
-                        <div className='col-12 customStepper' >
+                        <div className='col-12' >
                         {/* <ProgressBar now={progress} />
                         <div className='firstDiv'>
                             <span></span>
@@ -374,44 +374,72 @@ const ListProperty = () => {
                             <span></span>
                         </div> */}
                         
-                        <Box sx={{ width: '100%' }}>
+                        
                            
-      <Stepper alternativeLabel activeStep={activeStep}>
-
-      {steps.map((label, index) => (
-          <Step key={label} completed={completed[index]}>
-            <StepButton onClick={handleStep(index)}>
-              {label}
-            </StepButton>
-          </Step>
-        ))}
-
-      </Stepper>
+     
       <div>
-      {activeStep === steps.length ? (
+     
           <div>
-            <Typography variant="h4">All steps completed</Typography>
-            {/* Render a summary or confirmation message here */}
-          </div>
-        ) : (
-          <div>
-            {stepContent(activeStep)}
+            <div className='row mt-3'>
+                <h6>Monthly Charges</h6>
+                <div className='col-12 mb-3'>
+                <FloatingLabel controlId="floatingRent" label="Monthly rent">
+                 <Form.Control type="text" placeholder="Monthly rent"  onChange={handleChange}/>
+                </FloatingLabel>
+                </div>
+                <div className='col-12 mb-3'>
+                <FloatingLabel controlId="floatingMaint" label="Monthly Maintenance Charge">
+                 <Form.Control type="text" placeholder="Monthly Maintenance Charge"  onChange={handleChange}/>
+                </FloatingLabel>
+                </div>
+                <h6>One time refundable charges</h6>
+                <div className='col-12 mb-3'>
+                <FloatingLabel controlId="floatingSecurity" label="Security Deposit">
+                 <Form.Control type="text" placeholder="Security Deposit"  onChange={handleChange}/>
+                </FloatingLabel>
+                </div>
+                <h6>One time non refundable charges</h6>
+                <div className='col-12 mb-3'>
+                <FloatingLabel controlId="floatingCleaning" label="Cleaning Charges">
+                 <Form.Control type="text" placeholder="Cleaning Charges"  onChange={handleChange}/>
+                </FloatingLabel>
+                </div>
+                <h6>Property available by</h6>
+                <div className='col-12 mb-3 dateCss'>
+                <label>Moving In Date</label>
+                 {/* <Form.Control type="text" placeholder="Moving In Date"  onChange={onChange} value={value}/> */}
+                 <DatePicker onChange={onChange} value={value} format="d MMM yyyy" />
+                
+                </div>
+                <div className='col-12 mb-3'>
+                
+                <Form.Check
+            label={  <span >Have You Insured Your Property? </span>}
+            name="group1"
+            type="checkbox"
+          />
+                </div>
+                
+                </div>
             <div className='addpropDiv'>
-                {activeStep > 0 &&
+                <div className='col-6'>
                     <button type='button' className='skip-btn' disabled={activeStep === 0} onClick={goBack}>
                 Save & Exit
                 </button>
-                }
-              
+                </div>
+                <div className='col-6'>
+              <Link href={'/accountDetail'}>
               <button type="button" className='signup-btn' onClick={handleNext}>
-                {activeStep === steps.length ? 'Next' : 'Next'}
+                Next
               </button>
+              </Link>
+              </div>
             </div>
           </div>
-        )}
+        
       </div>
      
-    </Box>
+    
                  </div>
                     </div>
       
@@ -426,21 +454,7 @@ const ListProperty = () => {
       </form>
                 </div>
                 <div className='col-6 right-padding mob-hide'>
-                  {
-                    activeStep == 0 && 
-                    <Image src={laptopList} alt='detail' className='img-fluid' />
-                  }
-
-                  {
-                     activeStep == 1 &&
-               <Image src={mapList} alt='detail' className='img-fluid' />
-
-                  }
-               {
-                 activeStep == 2 &&
-                 <Image src={homeList} alt='detail' className='img-fluid' />
-
-               }
+                
                 </div>
 
             </div>
@@ -451,4 +465,4 @@ const ListProperty = () => {
   );
 };
 
-export default ListProperty;
+export default VerifyPublish;

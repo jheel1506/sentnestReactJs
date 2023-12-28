@@ -81,9 +81,11 @@ const ListerDashboard = () => {
                     <div className='container'>
                     <h6>Dashboard</h6>
                         <ul className='dashboard-list p-0'>
-                        
+                        <Link href={"/accountDetail"}>
                             <li> <Image src={one} className='img-fluid' alt='one' />
+                            
                             <h6 >Account <br></br> Details</h6> </li>
+                            </Link>
                             <Link href={"/myProperty"}>
                             <li > 
                               
@@ -94,20 +96,34 @@ const ListerDashboard = () => {
                             </Link>
                             <li> <Image src={three} className='img-fluid' alt='one' /> 
                             <h6 >Communication</h6></li>
+                            <Link href={"/schedulerEvent"}>
                             <li> <Image src={four} className='img-fluid' alt='one' /> 
                             <h6 >Scheduler and <br></br> Events</h6></li>
+                            </Link>
+                            <Link href={"/bookingRequest"}>
                             <li> <Image src={fivesix} className='img-fluid' alt='one' /> 
                             <h6 >Rental <br></br> Request</h6></li>
+                            </Link>
+                            <Link href={"/contract"}>
                             <li> <Image src={fivesix} className='img-fluid' alt='one' />
                             <h6 >Contract</h6> </li>
+                            </Link>
+                            <Link href={"/availability"}>
                             <li> <Image src={seven} className='img-fluid' alt='one' /> 
                             <h6 >Availabilty</h6></li>
+                            </Link>
+                            <Link href={"/paymentPayout"}>
                             <li> <Image src={eight} className='img-fluid' alt='one' />
                             <h6 >Payment <br></br> Details /History</h6> </li>
+                            </Link>
+                            <Link href={"/tenantReportIssue"}>
                             <li> <Image src={nine} className='img-fluid' alt='one' /> 
                             <h6 >Tenant <br></br> Report Issues</h6></li>
+                            </Link>
+                            <Link href={"/helpSupport"}>
                             <li> <Image src={ten} className='img-fluid' alt='one' />
                             <h6 >Help & <br></br> Support</h6> </li>
+                            </Link>
                            
                         </ul>
                     </div>

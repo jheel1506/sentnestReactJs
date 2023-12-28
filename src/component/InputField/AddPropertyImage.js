@@ -15,6 +15,7 @@ import uploadBtnIcon from '../../../public/assets/my-property/upload.svg';
 import plusCatg from '../../../public/assets/my-property/plus-categ.svg';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Link from 'next/link'
+import uploadIcon from '../../../public/assets/upload-icon.svg'
 
 import OtpInput from 'react-otp-input';
 
@@ -64,9 +65,9 @@ const handleShow = () => setShow(true);
         </button>
        
         </div>
-        <div className='container-fluid'>
+        <div className='container'>
             <div className='row '>
-                <div className='col-12 col-md-9 left-padding'>
+                <div className='col-12 col-md-8'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100'>
                     <h5 className='mb-4'>Add Property <br></br> Images</h5>
                     <small><strong>Banner Image</strong></small><br></br>
@@ -85,9 +86,9 @@ const handleShow = () => setShow(true);
      <div>
      <ul className='add-property-Image p-0'>
         <li onClick={handleShow}> <Image src={plusCatg} alt='add' className='img-fluid' /> <p>Add Category</p> </li>
+        {/* <li></li>
         <li></li>
-        <li></li>
-        <li></li>
+        <li></li> */}
         </ul>
      </div>
       
@@ -96,16 +97,16 @@ const handleShow = () => setShow(true);
         
       <div className='row'>
         
-        <div className='col-6'>
-        <Link href="/signin">
-            <button type="button" className='skip-btn' onClick={(e) => setshowOTP(true)} >Skip</button>
-            </Link>
+        <div className='col-4'>
+        
+            <button type="button" className='skip-btn'  >Save & Exit</button>
+            
             </div>
         
         
-        <div className='col-6'>
-        <Link href="/signin">
-            <button type="button" className='addreSIgn signup-btn' onClick={(e) => setshowOTP(true)} >Next</button>
+        <div className='col-3'>
+        <Link href="/createUtility">
+            <button type="button" className='addreSIgn signup-btn' >Next</button>
             </Link>
             </div>
         
@@ -121,150 +122,9 @@ const handleShow = () => setShow(true);
             </div>
 
         </div>
-        {/* <Modal
-     size="xl"
-        show={show}
-        onHide={handleClose}     
-        keyboard={false} centered >
-          <Modal.Header closeButton>
-          <Modal.Title id="example-custom-modal-styling-title">
-            Search
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className='row'>
-              <div className='col-12 col-md-6'>
-                
-                <div className='row mt-4'>
-                  <div className='col-6'>
-                  <FloatingLabel
-                    controlId="floatingInput"
-                    label="Min"
-                    className="mb-3"
-                  >
-                    <Form.Control type="text" placeholder="Min" />
-                  </FloatingLabel>
-                  </div>
-                  <div className='col-6'>
-                  <FloatingLabel
-                    controlId="floatingInput"
-                    label="Max"
-                    className="mb-3"
-                  >
-                    <Form.Control type="text" placeholder="Max" />
-                  </FloatingLabel>
-                  </div>
-                </div>
-                <div className='row mt-4'>
-                  <div className='col-12'>
-                  <FloatingLabel
-                    controlId="floatingInput"
-                    label="Location"
-                    className="mb-3"
-                  >
-                    <Form.Control type="text" placeholder="location" />
-                  </FloatingLabel>
-                  </div>
-                  
-                </div>
-                <div className='row mt-4'>
-                  <div className='col-12'>
-                  <FloatingLabel controlId="floatingSelect" label="Select Category">
-                    <Form.Select aria-label="Floating label select example">
-                      <option value="Villa">Villa</option>
-                      <option value="Villa">Villa</option>
-                      <option value="Villa">Villa</option>
-                      
-                    </Form.Select>
-                  </FloatingLabel>
-                  </div>
-                  
-                </div>
-              </div>
-              <div className='col-12 col-md-6'>
-
-                <div className='row mt-4'>
-                  <div className='col-6'>
-                  <FloatingLabel
-                    controlId="floatingInput"
-                    label="Min"
-                    className="mb-3"
-                  >
-                    <Form.Control type="text" placeholder="Min" />
-                  </FloatingLabel>
-                  </div>
-                  <div className='col-6'>
-                  <FloatingLabel
-                    controlId="floatingInput"
-                    label="Max"
-                    className="mb-3"
-                  >
-                    <Form.Control type="text" placeholder="Max" />
-                  </FloatingLabel>
-                  </div>
-                </div>
-                <div className='row mt-4'>
-                  <div className='col-6'>
-                  <FloatingLabel controlId="floatingSelect" label="Country">
-                    <Form.Select aria-label="Floating label select example">
-                      <option >Select</option>
-                      <option value="India">India</option>
-                      <option value="India">India</option>
-                      <option value="India">India</option>
-                      
-                    </Form.Select>
-                  </FloatingLabel>
-                  </div>
-
-                  <div className='col-6'>
-                  <FloatingLabel controlId="floatingSelect" label="State">
-                    <Form.Select aria-label="Floating label select example">
-                      <option >Select</option>
-                      <option value="India">Maharastra</option>
-                      <option value="India">Uttar Pradesh</option>
-                      <option value="India">Punjab</option>
-                      
-                    </Form.Select>
-                  </FloatingLabel>
-                  </div>
-                  
-                </div>
-
-                <div className='row mrg-top-2-5'>
-                  <div className='col-6'>
-                  <FloatingLabel controlId="floatingSelect" label="No. of Bed">
-                    <Form.Select aria-label="Floating label select example">
-                      <option >Select</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      
-                    </Form.Select>
-                  </FloatingLabel>
-                  </div>
-
-                  <div className='col-6'>
-                  <FloatingLabel controlId="floatingSelect" label="No. of Bathroom">
-                    <Form.Select aria-label="Floating label select example">
-                      <option >Select</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      
-                    </Form.Select>
-                  </FloatingLabel>
-                  </div>
-                  
-                </div>
-              </div>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <button type='button' className='white-btn' onClick={handleClose}>Cancel</button>
-          <button type='button' className="red-btn">Search</button>
-        </Modal.Footer>
-
-      </Modal> */}
+        
       <Offcanvas show={show} onHide={handleClose} placement={'end'} backdrop={false}>
-        <Offcanvas.Header closeButton className='pt-4'>
+        <Offcanvas.Header closeButton className='addPropModal'>
           <Offcanvas.Title >Add Category
             
           </Offcanvas.Title>
@@ -275,7 +135,34 @@ const handleShow = () => setShow(true);
         
           {/* Some text as placeholder. In real life you can have the elements you
           have chosen. Like, text, images, lists, etc. */}
+           <FloatingLabel controlId="floatingSelect" label="Select Category" className='mb-3'>
+                    <Form.Select aria-label="Select Category">
+                      <option >Living Room</option>
+                      <option value="1">Kitchen</option>
+                      <option value="2">Terrace</option>
+                      <option value="3">Other</option>
+                      
+                    </Form.Select>
+                  </FloatingLabel>
+                  <FloatingLabel
+                    controlId="floatingInput"
+                    label="Add New Category"
+                    className='mb-3'
+                  >
+                    <Form.Control type="text" />
+                  </FloatingLabel>
+                  <small><strong>Bar Images</strong></small>
+                  <Form.Group controlId="formFile" className="mb-3 upload-fle-div">
+        <p className='mb-0'> <Image src={uploadIcon} alt='upload' className='img-fluid' /> Browse Images</p>
+        <Form.Label className='upload-fle' >Upload</Form.Label>
+        <Form.Control  type="file" hidden/>
+      </Form.Group>
+      <hr></hr>
+          <div className='mod-btm'>
+          <button type="button" className='addreSIgn signup-btn'  >Add</button>
+          </div>
         </Offcanvas.Body>
+        
       </Offcanvas>
     </div>
     

@@ -15,7 +15,7 @@ const Header = () => {
     <>
     <Navbar  data-bs-theme="light" fixed="top">
     <Container>
-      <Navbar.Brand href="#home">
+      <Navbar.Brand href="/listerDashboard">
             <Image src={setnestlogo} alt='logo' className={'img-fluid ' + styles.topLogo} />
       </Navbar.Brand>
       <Nav className="justify-content-end align-items-center">
