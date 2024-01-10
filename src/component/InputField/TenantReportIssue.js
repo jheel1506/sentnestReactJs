@@ -693,7 +693,7 @@ const TenantReportIssue = () => {
                               {activeStep === steps.length && (
                                 <Paper square elevation={0} sx={{ p: 3 }}>
                                   <Typography>
-                                    All steps completed - you&apos;re finished
+                                    All steps completed - you&apos;sre finished
                                   </Typography>
                                   <Button
                                     onClick={handleReset}

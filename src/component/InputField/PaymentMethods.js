@@ -428,7 +428,7 @@ const [otp, setOtp] = useState('');
           </div>
             
             <div className='d-flex justify-content-center resendDiv mt-2'>
-            Didn&apos;t get it? <span className='resendBtn'> Resend the code</span>
+            Didn&apos;st get it? <span className='resendBtn'> Resend the code</span>
             </div>
             <div>
             <button type='button' className=' mt-4 mb-4 contract-red-btn rounded-pill' onClick={handleClose}>

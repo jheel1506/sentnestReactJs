@@ -111,7 +111,7 @@ const VerifyProfile = () => {
         
       </form>
                 </div>
-                <div className='col-6 right-padding mob-hide'>
+                <div className='col-6 right-padding mob-hide test'>
                 <Carousel>
       <Carousel.Item>
         <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>

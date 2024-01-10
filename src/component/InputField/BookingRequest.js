@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import {useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -58,6 +58,9 @@ const BookingRequest = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
+const [showTenant, setShowTenant] = useState(false);
+    const handleCloseTenant = () => setShowTenant(false);
+const handleShowTenant = () => setShowTenant(true);
 const [showNew, setShowNew] = useState(false);
     const handleCloseNew = () => setShowNew(false);
 const handleShowNew = () => setShowNew(true);
@@ -186,7 +189,15 @@ const handleShowNew = () => setShowNew(true);
           setBathroom(bathroom - 1)
         }
       };
-
+      useEffect(() => {
+        // Perform localStorage action
+       const tenant = localStorage.getItem('tenant');
+        console.log(tenant)
+        if(tenant == 'true'){
+          handleShowTenant()
+        }
+        
+      }, [])
      
 
   return (
@@ -203,7 +214,16 @@ const handleShowNew = () => setShowNew(true);
             <div className='row '>
                 <div className='col-12 col-md-12 listPropdPadd left-padding'>
                 <Card className='wd-100 mb-5 accCard '>
-                <Card.Header as="h5" className='p-4 bg-white'>Booking Request</Card.Header>
+                {
+                  !showTenant &&
+                  <Card.Header as="h5" className='p-4 bg-white'>Booking Request</Card.Header>
+
+                }
+                {
+                  showTenant &&
+                  <Card.Header as="h5" className='p-4 bg-white'>All Request</Card.Header>
+
+                }
                     
                     <Card.Body>
                     <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
@@ -231,6 +251,8 @@ const handleShowNew = () => setShowNew(true);
                                   </Form.Select>
                                   </div>
                                 </div>
+                                {
+                          !showTenant &&
                                 <div className='row pt-0 pb-0 p-3 mb-4'>
                                   <span className='booking-list'>
                                   <div className='col-8 d-flex '>
@@ -251,6 +273,9 @@ const handleShowNew = () => setShowNew(true);
                                     </div>
                                     </span>
                                 </div>
+                                }
+                                {
+                              !showTenant &&
                                 <div className='row pt-0 pb-0 p-3 mb-4'>
                                   <span className='booking-list'>
                                   <div className='col-8 d-flex '>
@@ -271,20 +296,37 @@ const handleShowNew = () => setShowNew(true);
                                     </div>
                                     </span>
                                 </div>
+                              }
+                              {
+                          !showTenant &&
                                 <h6>Previous</h6>
+                              }
                                 <div className='row pt-0 pb-0 p-3 mb-4'>
                                   <span className='booking-list'>
                                   <div className='col-8 d-flex '>
                                   <Image src={profilePic} alt='profile' className='img-fluid bookProfil' />
                                       <div>
                                       <p className='mb-0'><strong>Sumit kumar</strong></p>
+                                      {
+                                        showTenant &&
+                                        <p className='mb-0'>Naraina Industrial Estate H.O</p>
+                                      }
                                       <p className='mb-0'>August 7, 2021 12:30 pm</p>
                                       </div>
                                       
                                     </div>
+                                    {
+                                    !showTenant &&
                                     <div className='col-4 d-flex gap-4 align-items-center justify-content-end greenClr'>
                                     Accepted
                                     </div>
+                                      }
+                                      {
+                                    showTenant &&
+                                    <div className='col-4 d-flex gap-4 align-items-center justify-content-end greenClr'>
+                                    Request Accepted
+                                    </div>
+                                      }
                                     </span>
                                 </div>
                                 <div className='row pt-0 pb-0 p-3 mb-4'>
@@ -293,6 +335,10 @@ const handleShowNew = () => setShowNew(true);
                                   <Image src={profilePic} alt='profile' className='img-fluid bookProfil' />
                                       <div>
                                       <p className='mb-0'><strong>Sumit kumar</strong></p>
+                                      {
+                                        showTenant &&
+                                        <p className='mb-0'>Naraina Industrial Estate H.O</p>
+                                      }
                                       <p className='mb-0'>August 7, 2021 12:30 pm</p>
                                       </div>
                                       
@@ -308,16 +354,31 @@ const handleShowNew = () => setShowNew(true);
                                   <Image src={profilePic} alt='profile' className='img-fluid bookProfil' />
                                       <div>
                                       <p className='mb-0'><strong>Sumit kumar</strong></p>
+                                      {
+                                        showTenant &&
+                                        <p className='mb-0'>Naraina Industrial Estate H.O</p>
+                                      }
                                       <p className='mb-0'>August 7, 2021 12:30 pm</p>
                                       </div>
                                       
                                     </div>
+                                    {
+                                    !showTenant &&
                                     <div className='col-4 d-flex gap-4 align-items-center justify-content-end greenClr'>
                                     Accepted
                                     </div>
+                                      }
+                                      {
+                                    showTenant &&
+                                    <div className='col-4 d-flex gap-4 align-items-center justify-content-end greenClr'>
+                                    Request Accepted
+                                    </div>
+                                      }
                                     </span>
                                 </div>
                             </Tab>
+                            {
+                          !showTenant &&
                             <Tab eventKey="profile" title="Accepted">
                             <div className='row mb-4'>
                                   <div className='col-4'>
@@ -363,6 +424,9 @@ const handleShowNew = () => setShowNew(true);
                                     </span>
                                 </div>
                             </Tab>
+                            }
+                            {
+                          !showTenant &&
                             <Tab eventKey="contact" title="Rejected" >
                             <div className='row mb-4'>
                                   <div className='col-4'>
@@ -408,7 +472,7 @@ const handleShowNew = () => setShowNew(true);
                                     </span>
                                 </div>
                             </Tab>
-                            
+                            }
                             </Tabs>
                         
                            

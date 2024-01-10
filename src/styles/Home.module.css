@@ -128,6 +128,18 @@ opacity: 1;
   width: 100px;
 }
 
+.previewImg {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.previewImg .carousel-control-prev  {
+ left: -8em !important;
+}
+.previewImg .modal-content .modal-header {
+  background-color: #000000 !important;
+}
+
 @media(max-width: 1600px){
   .iconBtn{
     width: 50px;

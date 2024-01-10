@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import {useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from '@/styles/addadress.module.css';
+import tabstyles from '@/styles/accountDetails.module.css';
 import Image from 'next/image'
 import Carousel from 'react-bootstrap/Carousel';
 import crslimg from '../../../public/assets/addPropCrsl.png';
@@ -57,6 +58,8 @@ const AccountDetail = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
+const [showTenant, setShowTenant] = useState(false);
+const handleShowTenant = () => setShowTenant(true);
 const [showNew, setShowNew] = useState(false);
     const handleCloseNew = () => setShowNew(false);
 const handleShowNew = () => setShowNew(true);
@@ -347,6 +350,16 @@ const handleShowNew = () => setShowNew(true);
         }
       };
 
+      useEffect(() => {
+        // Perform localStorage action
+       const tenant = localStorage.getItem('tenant');
+        console.log(tenant)
+        if(tenant == 'true'){
+          handleShowTenant()
+        }
+        
+      }, [])
+
   return (
     <div className='container-fluid p-0 mrgTop-8'>
      
@@ -367,7 +380,7 @@ const handleShowNew = () => setShowNew(true);
                     <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
                        
                         <div className='row justify-content-center position-relative'>
-                            <div className='col-12 accDetail' >
+                            <div className={'col-12 accDetail'} >
                         
                             <Tabs
                             transition={false}
@@ -390,7 +403,9 @@ const handleShowNew = () => setShowNew(true);
                                     </div>
                                   </div>
                                   <div className='col-6 personalForm'>
-                                  <div className='row mb-3'>
+                                    {
+                                      !showTenant && 
+                                    <div className='row mb-3'>
                                     <div className='col-6'>
                                     <FloatingLabel controlId="floatingPassword" label="First Name">
                                       <Form.Control type="text"  />
@@ -402,6 +417,9 @@ const handleShowNew = () => setShowNew(true);
                                     </FloatingLabel>
                                     </div>
                                   </div>
+                                    }
+                                  {
+                                      !showTenant && 
                                   <div className='row mb-3'>
                                     <div className='col-12'>
                                     <FloatingLabel controlId="floatingPassword" label="Phone no.">
@@ -410,6 +428,7 @@ const handleShowNew = () => setShowNew(true);
                                     </div>
                                     
                                   </div>
+                                  }
                                   <div className='row mb-3'>
                                     <div className='col-12'>
                                     <FloatingLabel controlId="floatingPassword" label="Email Address">
@@ -552,37 +571,93 @@ const handleShowNew = () => setShowNew(true);
               </div>
           </div>
                             </Tab>
+                            {
+                              !showTenant && 
                             <Tab eventKey="contact" title="Documents" >
                                 Tab content for Contact
                             </Tab>
+                            }
+                            
                             <Tab eventKey="financial" title="Financial Details" >
-                                <div className='row accFinac'>
-                                    <div className='col p-4 position-relative'>
-                                        <Image src={card} alt='card' className='img-fluid mb-3 imgWidth' />
-                                        <p><strong>Payment Methods</strong></p>
-                                        <p className='mb-0'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
-                                        <span className='propRight-icon'>
-                                                    <Image src={rightIcon} alt='washdish' className='img-fluid' />
-                                        </span>
-                                    </div>
-                                    <div className='col p-4 position-relative'>
-                                        <Image src={accFin1} alt='card' className='img-fluid mb-1 imgWidth' />
-                                        <p><strong>Rent Transaction History</strong></p>
-                                        <p className='mb-0'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
-                                        <span className='propRight-icon'>
-                                                    <Image src={rightIcon} alt='washdish' className='img-fluid' />
-                                        </span>
-                                    </div>
-                                    <div className='col p-4 position-relative'>
-                                        <Image src={accFin2} alt='card' className='img-fluid mb-1 imgWidth' />
-                                        <p><strong>Subscription History</strong></p>
-                                        <p className='mb-0'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
-                                        <span className='propRight-icon'>
-                                                    <Image src={rightIcon} alt='washdish' className='img-fluid' />
-                                        </span>
-                                    </div>
-                                </div>
+                              {!showTenant &&
+                              <div className='row accFinac'>
+                              <div className='col p-4 position-relative'>
+                                  <Image src={card} alt='card' className='img-fluid mb-3 imgWidth' />
+                                  <p><strong>Payment Methods</strong></p>
+                                  <p className='mb-0'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+                                  <span className='propRight-icon'>
+                                              <Image src={rightIcon} alt='washdish' className='img-fluid' />
+                                  </span>
+                              </div>
+                              <div className='col p-4 position-relative'>
+                                  <Image src={accFin1} alt='card' className='img-fluid mb-1 imgWidth' />
+                                  <p><strong>Rent Transaction History</strong></p>
+                                  <p className='mb-0'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+                                  <span className='propRight-icon'>
+                                              <Image src={rightIcon} alt='washdish' className='img-fluid' />
+                                  </span>
+                              </div>
+                              <div className='col p-4 position-relative'>
+                                  <Image src={accFin2} alt='card' className='img-fluid mb-1 imgWidth' />
+                                  <p><strong>Subscription History</strong></p>
+                                  <p className='mb-0'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+                                  <span className='propRight-icon'>
+                                              <Image src={rightIcon} alt='washdish' className='img-fluid' />
+                                  </span>
+                              </div>
+                          </div>
+                              }
+                              {showTenant &&
+                              <div className='col-6'>
+<div className='row mt-3'>
+                              <h6>Monthly Charges</h6>
+
+                              <div className='col-12 mb-3'>
+                              <FloatingLabel controlId="floatingRent" label="Monthly rent">
+                               <Form.Control type="text" placeholder="Monthly rent"  onChange={handleChange}/>
+                              </FloatingLabel>
+                              </div>
+                              <div className='col-12 mb-3'>
+                              <FloatingLabel controlId="floatingMaint" label="Monthly Maintenance Charge">
+                               <Form.Control type="text" placeholder="Monthly Maintenance Charge"  onChange={handleChange}/>
+                              </FloatingLabel>
+                              </div>
+                              <h6>One time refundable charges</h6>
+                              <div className='col-12 mb-3'>
+                              <FloatingLabel controlId="floatingSecurity" label="Security Deposit">
+                               <Form.Control type="text" placeholder="Security Deposit"  onChange={handleChange}/>
+                              </FloatingLabel>
+                              </div>
+                              <h6>One time non refundable charges</h6>
+                              <div className='col-12 mb-3'>
+                              <FloatingLabel controlId="floatingCleaning" label="Cleaning Charges">
+                               <Form.Control type="text" placeholder="Cleaning Charges"  onChange={handleChange}/>
+                              </FloatingLabel>
+                              </div>
+                              <h6>Property available by</h6>
+                              <div className='col-12 mb-3 dateCss'>
+                              <label>Moving In Date</label>
+                               {/* <Form.Control type="text" placeholder="Moving In Date"  onChange={onChange} value={value}/> */}
+                               <DatePicker onChange={onChange} value={value} format="d MMM yyyy" />
+                              
+                              </div>
+                              <div className='col-12 mb-3'>
+                              
+                              <Form.Check
+                          label={  <span >Have You Insured Your Property? </span>}
+                          name="group1"
+                          type="checkbox"
+                        />
+                              </div>
+                              
+                              </div>
+                              </div>
+                              
+                              }
+                                
                             </Tab>
+                            {
+                              !showTenant && 
                             <Tab eventKey="current" title="Current Plan" >
                                 <Card className='listMain mb-4'>
                                 <Card.Header  >
@@ -653,6 +728,7 @@ const handleShowNew = () => setShowNew(true);
                                 
                                 </Card>
                             </Tab>
+                            }
                             </Tabs>
                         
                            

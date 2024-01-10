@@ -107,7 +107,7 @@ const ForgetPassword = () => {
                     </div>
 
                     <div className='d-flex justify-content-center resendDiv mt-2'>
-                    Didn&apos;t get it? <span className='resendBtn'> Resend the code</span>
+                    Didn&apos;st get it? <span className='resendBtn'> Resend the code</span>
                     </div>
                     
                     
@@ -155,7 +155,7 @@ const ForgetPassword = () => {
         
       </form>
                 </div>
-                <div className='col-6 right-padding mob-hide'>
+                <div className='col-6 right-padding mob-hide test'>
                 <Carousel>
       <Carousel.Item>
         <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>

@@ -254,7 +254,7 @@ const handleShowUti = () => setShowUti(true);
                 <div className='col-12'>
                 <FloatingLabel
                     controlId="floatingInput"
-                    label="Term's Name"
+                    label="Term&apos;sName"
                     
                   >
                     <Form.Control type="text" />

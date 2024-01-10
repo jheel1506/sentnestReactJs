@@ -1,0 +1,18 @@
+.rentProperty .nav-tabs {
+    width: 40%;
+      margin: auto;
+      border: 1px solid var(--unnamed-color-f9415a);
+      background: #F2F2F2 0% 0% no-repeat padding-box;
+      border: 1px solid #F9415A;
+      border-radius: 13px;
+  }
+  .rentProperty .nav-tabs li {
+    border-radius: 13px;
+      padding: 4px;
+  }
+  .rentProperty .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-bottom: transparent !important;
+    color: #FFFFFF !important;
+    background-color: #F9415A !important;
+    border-radius: 13px;
+  }

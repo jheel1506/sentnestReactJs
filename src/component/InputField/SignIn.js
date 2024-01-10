@@ -24,7 +24,6 @@ import * as yup from 'yup';
 const schema = yup.object().shape({
   email: yup.string().required().email(),
   password: yup.string().required().min(6),
-  confpassword: yup.string().required().min(6),
 });
 
 const SignIn = () => {
@@ -45,7 +44,14 @@ const SignIn = () => {
       const onSubmit = async (data) => {
         // Your registration logic
         // Redirect user after successful registration
-        router.push('/login');
+        console.log(data)
+        if(data.email == 'tenant@tenant.com' && data.password == '123456'){
+          localStorage.setItem('tenant', true);
+          
+        }else{
+          localStorage.setItem('tenant', false)
+        }
+        router.push('/listerDashboard');
       };
 
       const renderButton = () => {
@@ -92,15 +98,15 @@ const SignIn = () => {
       </div>
         
         
-          <Link href="/listerDashboard">
-        <button type="button" className='signup-btn mt-4' >Sign In</button>
-          </Link>
+          {/* <Link href="/listerDashboard"> */}
+        <button type="submit" className='signup-btn mt-4' >Sign In</button>
+          {/* </Link> */}
 
         
         
       </form>
                 </div>
-                <div className='col-6 right-padding mob-hide'>
+                <div className='col-6 right-padding mob-hide test'>
                 <Carousel>
       <Carousel.Item>
         <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>
